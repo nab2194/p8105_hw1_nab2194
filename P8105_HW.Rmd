@@ -1,0 +1,54 @@
+---
+title: "Homework 1"
+Author: Natalie Boychuk
+output: github_document
+---
+
+This is my solution to Homework 1. First I am going to load the packages I need 
+
+```{r}
+library(tidyverse)
+```
+
+## Problem 1
+Creating a data frame with the specified elements:
+
+```{r}
+prob1_df =
+  tibble(
+    samp=rnorm(10),
+    samp_gt_0 = samp > 0,
+    char_vec = c("a","b","c","d","e","f","g","h","i","j"),
+    factor_vec = factor (c("low","low","low","mod", "mod","mod", "mod", "high","high","high"))
+  )
+```
+
+Taking the mean of each variable in my data frame. 
+
+```{r attempting to take the mean}
+    mean(pull(prob1_df, samp))
+    mean(pull(prob1_df, samp_gt_0))
+    mean(pull(prob1_df, char_vec))
+    mean(pull(prob1_df, factor_vec))
+```
+
+I cannot take the mean of the character vector or the factor vector, because R does not recognize these as numbers.
+
+```{r converting logical, char, and factor vectors to numeric}
+    as.numeric(pull(prob1_df,samp_gt_0))
+    as.numeric(pull(prob1_df,char_vec))
+    as.numeric(pull(prob1_df,factor_vec))
+```
+
+I can convert the logical and factor vectors to numeric but I can't do the same thing with character vectors. I couldn't take the factor vector as a mean, but if I want to, I can convert this into a numeric vector and then take the mean. I can't do this with a character vector - this may be because R can't find a way to meaningfully assign numbers to characters. 
+
+```{r converting logical vector and multiplying }
+    as.numeric(pull(prob1_df,samp_gt_0))*pull(prob1_df,samp)
+    as.factor(pull(prob1_df,samp_gt_0))*pull(prob1_df,samp)
+    as.numeric(as.factor(pull(prob1_df,samp_gt_0)))*pull(prob1_df,samp)
+```
+
+
+
+## Problem 2 
+
