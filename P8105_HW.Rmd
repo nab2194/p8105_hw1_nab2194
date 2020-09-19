@@ -4,14 +4,16 @@ Author: Natalie Boychuk
 output: github_document
 ---
 
-This is my solution to Homework 1. First I am going to load the packages I need 
+This is my solution to Homework 1. 
+
+_First I am going to load the packages I need._
 
 ```{r}
 library(tidyverse)
 ```
 
 ## Problem 1
-Creating a data frame with the specified elements:
+_Then I created a data frame with the specified elements_
 
 ```{r}
 prob1_df =
@@ -23,7 +25,7 @@ prob1_df =
   )
 ```
 
-Taking the mean of each variable in my data frame. 
+_I then took the mean of each variable in my data frame._ 
 
 ```{r attempting to take the mean}
     mean(pull(prob1_df, samp))
@@ -48,7 +50,22 @@ I can convert the logical and factor vectors to numeric but I can't do the same 
     as.numeric(as.factor(pull(prob1_df,samp_gt_0)))*pull(prob1_df,samp)
 ```
 
-
-
 ## Problem 2 
+_First, I loaded the penguin dataset_
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+The _Penguins_ dataset has `r nrow(penguins)` observations represented by rows and `r ncol(penguins)` variables, which are displayed in the columns. An average penguin in this dataset has a flipper length that is 200.92mm. Their bills are, on average, 
+
+```{r}
+mean(as.numeric
+     (pull(penguins,
+      flipper_length_mm)), 
+        na.rm = TRUE)
+
+
+```
+
+
 
