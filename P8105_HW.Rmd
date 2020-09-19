@@ -83,12 +83,18 @@ mean(as.numeric
 ```
 
 
-```{r}
 
-```
-
-
-```{r}
+```{r making my scatterplot and saving it}
 ggplot(penguins, aes(bill_length_mm, flipper_length_mm)) + geom_point(aes(colour = species)) + ggtitle("Penguin Bill and Flipper Length in mm") + labs (y = "Flipper Length (mm)", x = "Bill Length (mm)")
+
+ggsave("hw1_scatterplot.pdf",
+       plot = last_plot(),
+       device = NULL,
+       path = NULL,
+       scale = 1, 
+       limitsize = TRUE) 
+
 ```
+
+
 
