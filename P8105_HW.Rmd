@@ -56,7 +56,9 @@ _First, I loaded the penguin dataset_
 data("penguins", package = "palmerpenguins")
 ```
 
-The _Penguins_ dataset has `r nrow(penguins)` observations represented by rows and `r ncol(penguins)` variables, which are displayed in the columns. An average penguin in this dataset has a flipper length that is 200.92mm. Their bills are, on average, 
+The _Penguins_ dataset has `r nrow(penguins)` observations represented by rows and `r ncol(penguins)` variables, which are displayed in the columns. An average penguin in this dataset has a flipper length that is 200.92mm. Their bills are, on average, 43.92mm long and 17.15mm deep. The mean weight of penguins included in this study is 4201.75 grams.
+
+Of the penguins included in this study, 
 
 ```{r}
 mean(as.numeric
@@ -64,8 +66,29 @@ mean(as.numeric
       flipper_length_mm)), 
         na.rm = TRUE)
 
+mean(as.numeric
+     (pull(penguins,
+      bill_length_mm)),
+        na.rm = TRUE)
+
+mean(as.numeric
+     (pull(penguins,
+       bill_depth_mm)),
+        na.rm = TRUE)
+
+mean(as.numeric
+     (pull(penguins,
+          body_mass_g)),
+            na.rm = TRUE)
+```
+
+
+```{r}
 
 ```
 
 
+```{r}
+ggplot(penguins, aes(bill_length_mm, flipper_length_mm)) + geom_point(aes(colour = species)) + ggtitle("Penguin Bill and Flipper Length in mm") + labs (y = "Flipper Length (mm)", x = "Bill Length (mm)")
+```
 
